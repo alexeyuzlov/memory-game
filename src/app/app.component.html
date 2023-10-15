@@ -2,4 +2,20 @@
   <h1>Memory Game</h1>
 </div>
 
-<router-outlet></router-outlet>
+<div class="cards">
+  <div
+    *ngFor="let card of cards; trackBy: trackByFn"
+    class="card"
+    [class.card--solved]="card.solvedByUserId"
+    (click)="select(card)"
+  >
+    <img
+      class="card__image"
+      [class.card__image--hidden]="!card.solvedByUserId && !selected.includes(card.id)"
+      [src]="card.url"/>
+  </div>
+</div>
+
+<div class="footer">
+  Attempts: {{attemptsTotal}}
+</div>
