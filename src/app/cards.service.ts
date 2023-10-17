@@ -19,7 +19,7 @@ export class CardsService {
   public getAll(): Observable<Card[]> {
     const list: CardResponse[] = Array.from(Array(8)).map((item, index) => {
       return {
-        url: `https://placekitten.com/${index + 1}${index + 1}${index + 1}/${index + 1}${index + 1}${index + 1}`
+        url: `/assets/cards/00${index + 1}.jpg`
       }
     });
 
