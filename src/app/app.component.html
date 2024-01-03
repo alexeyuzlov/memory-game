@@ -1,21 +1,34 @@
-<div class="general-heading">
-  <h1>Memory Game</h1>
-</div>
+<button *ngIf="isAdmin" type="button" (click)="restart()">Restart</button>
 
-<div class="cards">
-  <div
-    *ngFor="let card of cards; trackBy: trackByFn"
-    class="card"
-    [class.card--solved]="card.solvedByUserId"
-    (click)="select(card)"
-  >
-    <img
-      class="card__image"
-      [class.card__image--hidden]="!card.solvedByUserId && !selected.includes(card.id)"
-      [src]="card.url"/>
+<ng-container *ngIf="outOfGame">
+  <div class="general-heading">
+    <h1>Memory Game!</h1>
   </div>
-</div>
+</ng-container>
 
-<div class="footer">
-  Attempts: {{attemptsTotal}}
-</div>
+<ng-container *ngIf="!outOfGame">
+  <div class="general-heading">
+    <h1 *ngIf="!endGame">{{isMyTurn ? 'Мой ход' : 'Не мой ход'}}</h1>
+    <h1 *ngIf="endGame">Игра окончена!</h1>
+  </div>
+
+  <div class="cards">
+    <div
+      *ngFor="let card of cards; trackBy: trackByFn"
+      class="card"
+      [class.card--solved-by-me]="card.solvedBySocketId && card.solvedBySocketId === socketId"
+      [class.card--solved-by-other]="card.solvedBySocketId && card.solvedBySocketId !== socketId"
+      (click)="select(card)"
+    >
+      <img
+        class="card__image"
+        [draggable]="false"
+        [class.card__image--hidden]="!card.solvedBySocketId && !selected.includes(card.id)"
+        [src]="card.url"/>
+    </div>
+  </div>
+
+  <div class="footer">
+    Попытки: {{attemptsTotal}}, Отгадано мной: {{solvedTotal}}
+  </div>
+</ng-container>

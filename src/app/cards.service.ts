@@ -5,7 +5,7 @@ import { shuffle } from 'src/app/shuffle';
 export interface Card {
   id: number;
   url: string;
-  solvedByUserId: number | null;
+  solvedBySocketId: string | null;
 }
 
 interface CardResponse {
@@ -29,13 +29,13 @@ export class CardsService {
           const card1: Card = {
             id: Math.random(),
             url: current.url,
-            solvedByUserId: null,
+            solvedBySocketId: null,
           };
 
           const card2: Card = {
             id: Math.random(),
             url: current.url,
-            solvedByUserId: null,
+            solvedBySocketId: null,
           };
 
           return [

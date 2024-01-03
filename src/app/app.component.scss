@@ -17,8 +17,12 @@ $size: 640px;
   position: relative;
   border-radius: 4px;
 
-  &--solved {
+  &--solved-by-me {
     border-color: darkgreen;
+  }
+
+  &--solved-by-other {
+    border-color: darkred;
   }
 
   &:after {
@@ -29,6 +33,7 @@ $size: 640px;
 
   &__image {
     position: absolute;
+    user-select: none;
     left: 0;
     top: 0;
     width: 100%;
