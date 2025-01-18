@@ -1,27 +1,79 @@
-# MemoryGame
+# Memory Game
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
+## Overview
+Memory Game is a multiplayer card-matching game built with Angular for the frontend and Socket.IO for real-time communication between players. Players take turns flipping cards to find matching pairs. The player with the most matched pairs wins the game.
 
-## Development server
+## Features
+- Two-player modes.
+- Real-time multiplayer functionality using Socket.IO.
+- Responsive design for seamless gameplay across devices.
+- Engaging visuals and smooth animations.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## How to Play
+1. The game begins with all the cards face down.
+2. Players take turns flipping two cards.
+3. If the two cards match, the player keeps them and gets another turn.
+4. If the cards do not match, they are flipped back face down, and the next player takes their turn.
+5. The game ends when all cards are matched. The player with the most pairs wins.
 
-## Code scaffolding
+## Getting Started
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v14 or higher)
+- [Angular CLI](https://angular.io/cli)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Installation
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/memory-game.git
+    cd memory-game
+    ```
 
-## Build
+2. Install dependencies for the frontend:
+    ```bash
+    cd client
+    npm install
+    ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. Install dependencies for the server:
+    ```bash
+    cd ./server
+    npm install
+    ```
 
-## Running unit tests
+### Running the Game
+1. Start the server:
+    ```bash
+    cd server
+    node index.js
+    ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. Start the Angular frontend:
+    ```bash
+    cd ../client
+    ng serve
+    ```
 
-## Running end-to-end tests
+3. Open your browser and navigate to:
+    ```
+    http://localhost:4200
+    ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Multiplayer Setup
+- Ensure the server is running and accessible.
+- Share your local IP address or deploy the server for remote play (ngrok for example).
+- Both players can connect to the same server instance to play together.
 
-## Further help
+## Technologies Used
+- **Angular**: Frontend framework for building the game interface.
+- **Socket.IO**: Real-time communication between players.
+- **Node.js**: Backend runtime for the server.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Contributing
+Contributions are welcome! Feel free to open issues, suggest features, or submit pull requests.
+
+## License
+This project is licensed under the [MIT License](LICENSE).
+
+---
+Enjoy the game and challenge your friends!
+
